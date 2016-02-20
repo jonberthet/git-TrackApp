@@ -79,7 +79,8 @@ ccs$Year <- as.factor(ccs$Year)
 # 
 # #Dtree
 # ccstree <- tree(Timen ~ School + Year + Team.or.Individual, data = ccs)
-# 
+
+
 #RandomForest
 ccsdf_rf <- ccs[,-c(15,16)]
 ccsdf_rf <- na.omit(ccsdf_rf)
@@ -88,7 +89,7 @@ ccsrf <- randomForest(Time ~ School + Team.or.Individual + Year, data = ccsdf_rf
 
 
 #Runner
-ggplot(data = ccs, aes(x = School, y = Time, color = School)) + geom_point() + xlab("Racer") + ylab("Position") + ggtitle("CCS 2014") + geom_text(aes(label=Last.Name))
+ggplot(data = ccs, aes(x = Year, y = Time, color = School)) + geom_point() + xlab("Racer") + ylab("Position") + ggtitle("CCS 2014") + geom_text(aes(label=Last.Name))
  #Removed ,aes(...size = -Team.Place)
 
 ggplot(data = ccs, aes(x = School, y = mean, color = School)) + geom_point() + xlab("Racer") + ylab("Position") + ggtitle("CCS 2014") + geom_text(aes(label=Last.Name))
